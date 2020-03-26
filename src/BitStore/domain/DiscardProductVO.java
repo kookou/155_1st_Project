@@ -7,14 +7,6 @@ public class DiscardProductVO implements Serializable{
 	private String discardProductName;
 	private String discardExprtDate;
 	private int discardPrice;
-	
-	public DiscardProductVO(int discardProductNo, String discardProductName, String discardExprtDate,
-			int discardPrice) {
-		this.discardProductNo = discardProductNo;
-		this.discardProductName = discardProductName;
-		this.discardExprtDate = discardExprtDate;
-		this.discardPrice = discardPrice;
-	}
 
 	public void setDiscardProductNo(int discardProductNo) {
 		this.discardProductNo = discardProductNo;
@@ -46,9 +38,9 @@ public class DiscardProductVO implements Serializable{
 
 	@Override
 	public String toString() {
-		return "ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½È£ : " + discardProductNo + ","
-				+ " ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ : " + discardProductName
-				+ ", ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : " + discardExprtDate + ", ï¿½ï¿½ï¿½ï¿½Ç° ï¿½Ü°ï¿½ : " + discardPrice;
+		return "Æó±â»óÇ°¹øÈ£ : " + discardProductNo + ","
+				+ " Æó±â»óÇ°¸í : " + discardProductName
+				+ ", Æó±â»óÇ° À¯Åë±âÇÑ : " + discardExprtDate + ", Æó±â»óÇ° ´Ü°¡ : " + discardPrice;
 	}
 
 }

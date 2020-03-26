@@ -11,10 +11,13 @@ import BitStore.util.BitStore;
 public class BitStoreMain {
 	public static void main(String[] args) {
 		
-		BitStore bs = new BitStore();
+		UserUI userUI = new UserUI();
+		userUI.service();
 		
-		BitStoreUI pu = new BitStoreUI();
-		pu.useBitStore();
+//		BitStore bs = new BitStore();
+		
+//		BitStoreUI pu = new BitStoreUI();
+//		pu.useBitStore();
 		
 //		BitStoreUI bsUI = new BitStoreUI();
 //		bsUI.user();
@@ -22,12 +25,12 @@ public class BitStoreMain {
 //		BoardUI bu = new BoardUI();
 //		bu.commonBoard();
 		
-//		UserUI bitStore = new UserUI(); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//		UserUI bitStore = new UserUI(); //½ÃÀÛÁ¡
 //		bitStore.service();
 		
 //		LoginUI lu = new LoginUI();
 //		lu.admin();
-//		ProductUI pu = new ProductUI(); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®
+//		ProductUI pu = new ProductUI(); //Çý¸°´©³ª ÆÄÆ®
 //		pu.admin();
 		
 	}
