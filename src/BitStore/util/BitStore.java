@@ -323,10 +323,46 @@ public class BitStore {
 	}
 
 	public void findID() {
+		Iterator<String> mapIter = userList.keySet().iterator();
+		System.out.println("찾고 싶은 ID의 이름을 입력해주세요");
+		String userName = sc.nextLine().trim();
+		boolean flag = false;
+		System.out.println("찾고 싶은 ID의 핸드폰번호를 입력해주세요");
+		String userPhone = sc.nextLine().trim();
+		while (mapIter.hasNext()) {
+			String key = mapIter.next();
+			UserVO value = userList.get(key);
+			if (value.getUserName().equals(userName) && value.getUserPhone().equals(userPhone)) {
+				System.out.println("["+userName+"] 님의 ID는 ["+value.getID()+"] 입니다.");
+				flag = true;
+				break;
+			}
+		}
+		if (flag == false) {
+			System.out.println("찾는 아이디가 없습니다.");
+		}
 
 	}
 
 	public void findPwd() {
+		Iterator<String> mapIter = userList.keySet().iterator();
+		System.out.println("찾고 싶은 비밀번호의 ID를 입력해주세요");
+		String userID = sc.nextLine().trim();
+		boolean flag = false;
+		System.out.println("찾고 싶은 비밀번호의 이름을 입력해주세요");
+		String userName = sc.nextLine().trim();
+		while (mapIter.hasNext()) {
+			String key = mapIter.next();
+			UserVO value = userList.get(key);
+			if (value.getID().equals(userID) && value.getUserName().equals(userName)) {
+				System.out.println("["+userID+"] 님의 비밀번호는 ["+value.getPwd()+"] 입니다.");
+				flag = true;
+				break;
+			}
+		}
+		if (flag == false) {
+			System.out.println("찾는 아이디가 없습니다.");
+		}
 
 	}
 
