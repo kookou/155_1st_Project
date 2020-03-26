@@ -6,9 +6,11 @@ import BitStore.ui.admin.MemberUI;
 import BitStore.ui.admin.ProductUI;
 import BitStore.ui.user.BitStoreUI;
 import BitStore.ui.user.UserUI;
+import BitStore.util.User;
 
 public class LoginUI {
-	private Scanner sc = new Scanner(System.in);;
+	private Scanner sc = new Scanner(System.in);
+	private User us = new User();
 //	private BoardUI boardUI;
 //	private BitStoreUI bitstoreUI;
 //	private MemberUI memberUI;
@@ -52,6 +54,7 @@ public class LoginUI {
 	// 사용자일 경우
 	public void user() {
 		UserUI user = new UserUI();
+		
 		while (true) {
 			switch (userMenu()) {
 			case 1: //편의점 이용
@@ -61,6 +64,7 @@ public class LoginUI {
 //				boardUI.commonBoard();
 				break;
 			case 3: // 회원정보 수정
+				us.updateUser();
 				//User클래스의 updateUser(User) : boolean 호출
 				break;
 			case 4: // 로그아웃

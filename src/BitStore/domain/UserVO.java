@@ -84,7 +84,7 @@ public class UserVO implements Serializable{
 		return "아이디 : " + ID + ", 비밀번호 : " + pwd + ", 이름 : " +
 					userName + ", 핸드폰 : " + userPhone + ", 돈 : "
 				+ money + ", 포인트 : " + userPoint + ", 할인가능여부 : " + discount + ", "
-						+ "주문 목록=" + orderList;
+						+ "주문 목록=" + orderList+"\n";
 	}
 
 }

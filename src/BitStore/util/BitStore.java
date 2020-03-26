@@ -33,7 +33,7 @@ public class BitStore {
 	private File productListFile;
 	private File discardProductListFile;
 	private File boardListFile;
-	private static UserVO user;
+	public static UserVO user;
 
 	public BitStore() {
 		userListFile = new File("userList.txt");
@@ -143,23 +143,27 @@ public class BitStore {
 
 	public void join() {
 		user = new UserVO();
-		System.out.println("¡Ø Bit ÆíÀÇÁ¡ È¸¿ø°¡ÀÔÀ» È¯¿µ ÇÕ´Ï´Ù¡Ø");
-		System.out.println("»ç¿ëÇÒ ¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä ");
+		System.out.println("¡Ø¡Ø¡Ø  Bit ÆíÀÇÁ¡ È¸¿ø°¡ÀÔÀ» È¯¿µ ÇÕ´Ï´Ù ¡Ø¡Ø¡Ø");
+		System.out.println("¡Ü Bit ÆíÀÇÁ¡¿¡ »ç¿ëÇÒ È¸¿ø ID¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
 		System.out.println("(5~15ÀÚ »çÀÌÀÇ ¿µ¹® °ú ¼ıÀÚ¸¦ Á¶ÇÕÇØÁÖ¼¼¿ä.)");
 		checkID();
-		System.out.println("»ç¿ëÇÒ ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+		System.out.println("¡Ü Bit ÆíÀÇÁ¡¿¡ »ç¿ëÇÒ È¸¿ø ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
 		System.out.println("(8~20ÀÚ »çÀÌÀÇ ¿µ¹® °ú ¼ıÀÚ,Æ¯¼ö¹®ÀÚ¸¦ Á¶ÇÕÇØÁÖ¼¼¿ä.)");
 		checkPwd();
-		System.out.println("È¸¿ø´ÔÀÇ ÇÚµåÆù ¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä.");
+		System.out.println("¡Ü Bit ÆíÀÇÁ¡¿¡ »ç¿ëÇÒ È¸¿ø ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+		user.setUserName(sc.nextLine().trim());
+		System.out.println("¡Ü Bit ÆíÀÇÁ¡¿¡ »ç¿ëÇÒ È¸¿ø ÇÚµåÆù¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
 		System.out.println("(010-0000-0000 Çü½ÄÀ¸·Î ÀÔ·ÂÇØ ÁÖ¼¼¿ä.)");
 		checkPhone();
-		System.out.println("È¸¿ø´ÔÀÇ ÀÜ¾×À» ÀÔ·ÂÇØ ÁÖ¼¼¿ä.");
+		System.out.println("¡Ü ¹°°Ç±¸¸Å¿¡ »ç¿ëÇÒ ±İ¾×À» ÃæÀüÇØÁÖ¼¼¿ä : ");
 		user.setMoney(Integer.parseInt(sc.nextLine().trim()));
 		user.setUserPoint(1000);
-		System.out.println("ÇÒÀÎÄ«µå¸¦ ¼ÒÁöÇÏ¼Ì´Ù¸é 1¹øÀ» ¾ø´Ù¸é 2¹øÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä");
+		System.out.println("¡Ü ÇÒÀÎÄ«µå¸¦ ¼ÒÁöÇÏ¼Ì´Ù¸é 1¹øÀ», ¾øÀ¸½Ã´Ù¸é 0¹øÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä : ");
 		checkDC();
 		userList.put(user.getID(), user);
 		writeUserList();
+		System.out.println("¡Ø¡Ø¡Ø  Bit ÆíÀÇÁ¡ È¸¿øÀÌ µÇ½Å °ÍÀ» ÃàÇÏµå¸³´Ï´Ù ¡Ø¡Ø¡Ø");
+		System.out.println("¡Ø¡Ø¡Ø  ±¸¸Å¿¡ »ç¿ë °¡´ÉÇÑ Æ÷ÀÎÆ®¸¦ Áö±ŞÇØ µå·È½À´Ï´Ù ¡Ø¡Ø¡Ø");
 
 		// È¸¿ø¸ñ·Ï
 		System.out.println("[È¸¿ø¸ñ·Ï Á¶È¸]");
@@ -174,37 +178,48 @@ public class BitStore {
 
 	public void login() {
 		while (true) {
-			System.out.println("¡Ø Bit ÆíÀÇÁ¡ ·Î±×ÀÎ¡Ø");
-			System.out.println("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+			System.out.println("¡Ø¡Ø¡Ø Bit ÆíÀÇÁ¡ ·Î±×ÀÎ ¡Ø¡Ø¡Ø ");
+			System.out.println("¡Ü ¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
 			String userID = sc.nextLine().trim();
 
 			if (!userList.containsKey(userID)) {
-				System.out.println("ÇØ´çÇÏ´Â ID°¡ ¾ø½À´Ï´Ù.");
+				System.out.println("xxxxx ÇØ´çÇÏ´Â ID°¡ ¾ø½À´Ï´Ù xxxxx");
 				login();
 			} else if (userList.containsKey(userID)) {
-				System.out.println("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+				System.out.println("¡Ü ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
 				String userPwd = sc.nextLine().trim();
 				if (userList.get(userID).getPwd().equals(userPwd)) {
-					System.out.print("Bit ÆíÀÇÁ¡¿¡ ·Î±×ÀÎ µÇ¾ú½À´Ï´Ù. : ");
+					System.out.print("¡Ø¡Ø¡Ø Bit ÆíÀÇÁ¡¿¡ ·Î±×ÀÎ µÇ¾ú½À´Ï´Ù ¡Ø¡Ø¡Ø ");
 					if (userID.equals("admin")) { // adminÀÌ¸é adminUI ÆäÀÌÁö ¤¡°í½Ì
 						LoginUI lu = new LoginUI();
-						System.out.println("±âº» User °´Ã¼");
-						System.out.println(user.toString());
-						currentLoginUser = user;
-						System.out.println("°ü¸®ÀÚ ¿À´Ï?");
-						System.out.println(currentLoginUser.toString());
+						Iterator<String> mapIter = userList.keySet().iterator();
+						while (mapIter.hasNext()) {
+							String key = mapIter.next();
+							UserVO value = userList.get(key);
+							if (userID.equals(value.getID())) {
+								currentLoginUser = value;
+								System.out.println("admin" + currentLoginUser.toString());
+								break;
+							}
+						}
 						lu.admin();
 					} else {
 						LoginUI lu = new LoginUI();
-						currentLoginUser = user;
-						System.out.println("»ç¿ëÀÚ ¿À´Ï?");
-						System.out.println(currentLoginUser.toString());
+						Iterator<String> mapIter = userList.keySet().iterator();
+						while (mapIter.hasNext()) {
+							String key = mapIter.next();
+							UserVO value = userList.get(key);
+							if (userID.equals(value.getID())) {
+								currentLoginUser = value;
+								System.out.println("user" + currentLoginUser.toString());
+								break;
+							}
+						}
 						lu.user();
 					}
-
 					break;
 				} else {
-					System.out.print("Password¸¦ È®ÀÎÇØ ÁÖ¼¼¿ä : ");
+					System.out.println("Password¸¦ È®ÀÎÇØ ÁÖ¼¼¿ä.");
 				}
 			}
 		}
@@ -215,21 +230,20 @@ public class BitStore {
 
 	public void checkID() {
 		userID = sc.nextLine().trim();
-		System.out.println(userID);
 		Set<String> keys = userList.keySet();
 		while (true) {
 			Pattern idPattern = Pattern.compile("^(?=.*[a-zA-Z])(?=.*[^!@#$%^*+=-])(?=.*[^°¡-ÆR])(?=.*[0-9]).{5,15}$");
 			Matcher matcher1 = idPattern.matcher(userID);
 			for (String key : keys) {
 				if (key.equals(userID)) {
-					System.out.println("ÀÌ¹Ì »ç¿ëÁßÀÎ ¾ÆÀÌµğÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØ ÁÖ¼¼¿ä");
+					System.out.println("xxx ÀÌ¹Ì »ç¿ëÁßÀÎ ¾ÆÀÌµğÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØ ÁÖ¼¼¿ä xxx");
 					checkID();
 				}
 			}
 			if (!matcher1.matches()) {
 				System.out.println("ÀÔ·Â °ª : " + userID);
-				System.out.println("Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù.");
-				System.out.println("5~15ÀÚ ¿µ¹®°ú ¼ıÀÚ¸¦ Á¶ÇÕÇÏ¿© ´Ù½Ã ÀÔ·ÂÇØ ÁÖ¼¼¿ä");
+				System.out.println("xxxxxxxx Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù xxxxxxxx");
+				System.out.println("xxx 5~15ÀÚ ¿µ¹®°ú ¼ıÀÚ¸¦ Á¶ÇÕÇÏ¿© ´Ù½Ã ÀÔ·ÂÇØ ÁÖ¼¼¿ä xxx");
 				checkID();
 			} else {
 				user.setID(userID);
@@ -246,8 +260,8 @@ public class BitStore {
 			Pattern pwPattern = Pattern.compile("^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$");
 			Matcher matcher1 = pwPattern.matcher(userPwd);
 			if (!matcher1.matches()) {
-				System.out.println("Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù.");
-				System.out.println("8~20ÀÚ »çÀÌÀÇ ¿µ¹® °ú ¼ıÀÚ,Æ¯¼ö¹®ÀÚ¸¦ Á¶ÇÕÇØ ´Ù½Ã ÀÔ·ÂÇØ ÁÖ¼¼¿ä.");
+				System.out.println("xxxxxxxx Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù xxxxxxxx");
+				System.out.println("xxx 8~20ÀÚ »çÀÌÀÇ ¿µ¹® °ú ¼ıÀÚ,Æ¯¼ö¹®ÀÚ¸¦ Á¶ÇÕÇØ ´Ù½Ã ÀÔ·ÂÇØ ÁÖ¼¼¿ä xxx");
 				checkPwd();
 			} else {
 				user.setPwd(userPwd);
@@ -264,8 +278,8 @@ public class BitStore {
 			Pattern phonePattern = Pattern.compile("^01([0|1|0]?)-?([0-9]{3,4})-?([0-9]{4})$");
 			Matcher matcher1 = phonePattern.matcher(userPhone);
 			if (!matcher1.matches()) {
-				System.out.println("Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù.");
-				System.out.println("010-0000-0000 Çü½ÄÀ¸·Î ÀÔ·ÂÇØ ÁÖ¼¼¿ä.");
+				System.out.println("xxxxxxxx Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù xxxxxxxx");
+				System.out.println("xxx 010-0000-0000 Çü½ÄÀ¸·Î ÀÔ·ÂÇØ ÁÖ¼¼¿ä xxx");
 				checkPhone();
 			} else {
 				user.setUserPhone(userPhone);
@@ -287,7 +301,7 @@ public class BitStore {
 				user.setDiscount(false);
 				break;
 			} else {
-				System.out.println("Àß¸øÀÔ·Â ÇÏ¼Ì½À´Ï´Ù.");
+				System.out.println("xxxxxxxx Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù xxxxxxxx");
 				checkDC();
 			}
 		}
@@ -305,7 +319,7 @@ public class BitStore {
 			oos = new ObjectOutputStream(fos);
 			oos.writeObject(userList);
 		} catch (Exception e) {
-			System.out.println("È¸¿ø¸ñ·Ï ÀúÀå¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+			System.out.println("xxxxx È¸¿ø¸ñ·Ï ÀúÀå¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù xxxxx");
 			e.printStackTrace();
 		} finally {
 			try {
@@ -323,48 +337,97 @@ public class BitStore {
 	}
 
 	public void findID() {
-		Iterator<String> mapIter = userList.keySet().iterator();
-		System.out.println("Ã£°í ½ÍÀº IDÀÇ ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä");
-		String userName = sc.nextLine().trim();
+		Set<String> keys = userList.keySet();
 		boolean flag = false;
-		System.out.println("Ã£°í ½ÍÀº IDÀÇ ÇÚµåÆù¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");
+
+		System.out.println("¡Ü Bit ÆíÀÇÁ¡¿¡ °¡ÀÔÇÑ È¸¿ø ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+		String userName = sc.nextLine().trim();
+		for (String key : keys) {
+			UserVO value = userList.get(key);
+			if (value.getUserName().equals(userName)) {
+				flag = true;
+				break;
+			}
+		}
+		if (flag == false) {
+			System.out.println("[" + userName + "] ÀÌ¸§ÀÇ È¸¿øÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. ");
+			System.out.println("xxxxxx È¸¿ø°¡ÀÔÈÄ ÀÌ¿ëÇØ ÁÖ¼¼¿ä xxxxxx");
+			return;
+		}
+		flag = false;
+		System.out.println("¡Ü Bit ÆíÀÇÁ¡¿¡ °¡ÀÔÇÑ È¸¿ø ÇÚµåÆù ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
 		String userPhone = sc.nextLine().trim();
-		while (mapIter.hasNext()) {
-			String key = mapIter.next();
+		for (String key : keys) {
 			UserVO value = userList.get(key);
 			if (value.getUserName().equals(userName) && value.getUserPhone().equals(userPhone)) {
-				System.out.println("["+userName+"] ´ÔÀÇ ID´Â ["+value.getID()+"] ÀÔ´Ï´Ù.");
+				System.out.println("[" + userName + "] ´ÔÀÇ ºñ¹Ğ¹øÈ£´Â [" + value.getID() + "] ÀÔ´Ï´Ù.");
 				flag = true;
 				break;
 			}
 		}
 		if (flag == false) {
-			System.out.println("Ã£´Â ¾ÆÀÌµğ°¡ ¾ø½À´Ï´Ù.");
+			System.out.println("xxx ÀÌ¸§°ú ÇÚµåÆù¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù. ´Ù½Ã ½ÃµµÇØ ÁÖ¼¼¿ä xxx");
 		}
-
 	}
 
+	/*
+	 * public void findID() { Iterator<String> mapIter =
+	 * userList.keySet().iterator(); System.out.println("Ã£°í ½ÍÀº IDÀÇ ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä");
+	 * String userName = sc.nextLine().trim(); boolean flag = false;
+	 * System.out.println("Ã£°í ½ÍÀº IDÀÇ ÇÚµåÆù¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä"); String userPhone =
+	 * sc.nextLine().trim(); while (mapIter.hasNext()) { String key =
+	 * mapIter.next(); UserVO value = userList.get(key); if
+	 * (value.getUserName().equals(userName) &&
+	 * value.getUserPhone().equals(userPhone)) {
+	 * System.out.println("["+userName+"] ´ÔÀÇ ID´Â ["+value.getID()+"] ÀÔ´Ï´Ù.");
+	 * flag = true; break; } } if (flag == false) { System.out.println(
+	 * "Ã£´Â ¾ÆÀÌµğ°¡ ¾ø½À´Ï´Ù."); } }
+	 */
 	public void findPwd() {
-		Iterator<String> mapIter = userList.keySet().iterator();
-		System.out.println("Ã£°í ½ÍÀº ºñ¹Ğ¹øÈ£ÀÇ ID¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");
-		String userID = sc.nextLine().trim();
+		Set<String> keys = userList.keySet();
 		boolean flag = false;
-		System.out.println("Ã£°í ½ÍÀº ºñ¹Ğ¹øÈ£ÀÇ ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä");
+
+		System.out.println("¡Ü Bit ÆíÀÇÁ¡¿¡ °¡ÀÔÇÑ È¸¿ø ID ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+		String userID = sc.nextLine().trim();
+		for (String key : keys) {
+			UserVO value = userList.get(key);
+			if (value.getID().equals(userID)) {
+				flag = true;
+				break;
+			}
+		}
+		if (flag == false) {
+			System.out.println("[" + userID + "] ID°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. ");
+			System.out.println("xxx È¸¿ø°¡ÀÔÀ» ÇÏ½Ã°Å³ª ID Ã£±â¸¦ ÀÌ¿ëÇØ ÁÖ¼¼¿ä xxx");
+			return;
+		}
+		flag = false;
+		System.out.println("¡Ü Bit ÆíÀÇÁ¡¿¡ °¡ÀÔÇÑ È¸¿ø ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
 		String userName = sc.nextLine().trim();
-		while (mapIter.hasNext()) {
-			String key = mapIter.next();
+		for (String key : keys) {
 			UserVO value = userList.get(key);
 			if (value.getID().equals(userID) && value.getUserName().equals(userName)) {
-				System.out.println("["+userID+"] ´ÔÀÇ ºñ¹Ğ¹øÈ£´Â ["+value.getPwd()+"] ÀÔ´Ï´Ù.");
+				System.out.println("[" + userID + "] ´ÔÀÇ ºñ¹Ğ¹øÈ£´Â [" + value.getPwd() + "] ÀÔ´Ï´Ù.");
 				flag = true;
 				break;
 			}
 		}
 		if (flag == false) {
-			System.out.println("Ã£´Â ¾ÆÀÌµğ°¡ ¾ø½À´Ï´Ù.");
+			System.out.println("xxx ID¿Í ÀÌ¸§ÀÌ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù. ´Ù½Ã ½ÃµµÇØ ÁÖ¼¼¿ä xxx");
 		}
-
 	}
+	/*
+	 * public void findPwd() { Iterator<String> mapIter =
+	 * userList.keySet().iterator(); System.out.println("Ã£°í ½ÍÀº ºñ¹Ğ¹øÈ£ÀÇ ID¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä"
+	 * ); String userID = sc.nextLine().trim(); boolean flag = false;
+	 * System.out.println("Ã£°í ½ÍÀº ºñ¹Ğ¹øÈ£ÀÇ ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä"); String userName =
+	 * sc.nextLine().trim(); while (mapIter.hasNext()) { String key =
+	 * mapIter.next(); UserVO value = userList.get(key); if
+	 * (value.getID().equals(userID) && value.getUserName().equals(userName)) {
+	 * System.out.println("["+userID+"] ´ÔÀÇ ºñ¹Ğ¹øÈ£´Â ["+value.getPwd()+"] ÀÔ´Ï´Ù.");
+	 * flag = true; break; } } if (flag == false) { System.out.println(
+	 * "Ã£´Â ¾ÆÀÌµğ°¡ ¾ø½À´Ï´Ù."); } }
+	 */
 
 	public void readUserList() {
 		File file = new File("userList.txt");
@@ -377,7 +440,7 @@ public class BitStore {
 			ois = new ObjectInputStream(bis);
 			userList = (HashMap) ois.readObject();
 		} catch (Exception e) {
-			System.out.println("È¸¿ø¸ñ·ÏÀ» ºÒ·¯¿À´Âµ¥ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+			System.out.println("xxxxx È¸¿ø¸ñ·ÏÀ» ºÒ·¯¿À´Âµ¥ ½ÇÆĞÇÏ¿´½À´Ï´Ù xxxxx");
 			e.printStackTrace();
 		} finally {
 			this.close(fis, bis, ois);
@@ -395,7 +458,7 @@ public class BitStore {
 			ois = new ObjectInputStream(bis);
 			productList = (HashMap) ois.readObject();
 		} catch (Exception e) {
-			System.out.println("»óÇ°¸ñ·ÏÀ» ºÒ·¯¿À´Âµ¥ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+			System.out.println("xxxxx »óÇ°¸ñ·ÏÀ» ºÒ·¯¿À´Âµ¥ ½ÇÆĞÇÏ¿´½À´Ï´Ù xxxxx");
 			e.printStackTrace();
 		} finally {
 			this.close(fis, bis, ois);
@@ -413,7 +476,7 @@ public class BitStore {
 			ois = new ObjectInputStream(bis);
 			discardProductList = (HashMap) ois.readObject();
 		} catch (Exception e) {
-			System.out.println("Æó±â»óÇ°¸ñ·ÏÀ» ºÒ·¯¿À´Âµ¥ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+			System.out.println("xxxxx Æó±â»óÇ°¸ñ·ÏÀ» ºÒ·¯¿À´Âµ¥ ½ÇÆĞÇÏ¿´½À´Ï´Ù xxxxx");
 			e.printStackTrace();
 		} finally {
 			this.close(fis, bis, ois);
@@ -431,7 +494,7 @@ public class BitStore {
 			ois = new ObjectInputStream(bis);
 			boardList = (HashMap) ois.readObject();
 		} catch (Exception e) {
-			System.out.println("°Ô½ÃÆÇ¸ñ·ÏÀ» ºÒ·¯¿À´Âµ¥ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+			System.out.println("xxxxx °Ô½ÃÆÇ¸ñ·ÏÀ» ºÒ·¯¿À´Âµ¥ ½ÇÆĞÇÏ¿´½À´Ï´Ù xxxxx");
 			e.printStackTrace();
 		} finally {
 			this.close(fis, bis, ois);

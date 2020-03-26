@@ -10,8 +10,10 @@ import BitStore.util.BitStore;
 public class UserUI {
 	private Scanner sc = new Scanner(System.in);
 	private BitStore bs = new BitStore();
+	
 
 	public void service() {
+		System.out.println(BitStore.userList);
 		while (true) {
 			switch (menu()) {
 			case 1:
@@ -23,9 +25,11 @@ public class UserUI {
 				// BitStroe의 login메소드 출력
 				break;
 			case 3:
+				bs.findID();
 				// BitStroe의 findID()출력
 				break;
 			case 4:
+				bs.findPwd();
 				// BitStroe의 findPwd()출력
 				break;
 			case 0:
