@@ -1,0 +1,38 @@
+package BitStore.util;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import BitStore.domain.UserVO;
+
+public class User {
+
+	public void selectUser() {
+		Iterator<String> mapIter = BitStore.userList.keySet().iterator();
+		while (mapIter.hasNext()) {
+			String key = mapIter.next();
+			UserVO value = BitStore.userList.get(key);
+			System.out.println(value + " / ");
+		}
+	}
+
+	public User selectUserByID(String ID) {
+		return null;
+	}
+
+	public boolean updateUser(User user) {
+		return false;
+	}
+
+	public boolean deleteUser(String ID) {
+		// HashMap에 회원목록을 삭제하는 로직
+		BitStore bit = new BitStore();
+		bit.writeUserList();
+
+		return false;
+	}
+
+
+}

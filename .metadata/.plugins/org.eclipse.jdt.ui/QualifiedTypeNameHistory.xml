@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="BitStore.ui.user.UserUI"/>
+    <fullyQualifiedTypeName name="BitStore.ui.admin.ProductUI"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="BitStore.util.User"/>
+    <fullyQualifiedTypeName name="BitStore.ui.admin.MemberUI"/>
+    <fullyQualifiedTypeName name="BitStore.domain.DiscardProductVO"/>
+    <fullyQualifiedTypeName name="BitStore.ui.LoginUI"/>
+    <fullyQualifiedTypeName name="BitStore.ui.user.BitStoreUI"/>
+    <fullyQualifiedTypeName name="BitStore.util.PurChase"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="BitStore.util.Product"/>
+    <fullyQualifiedTypeName name="BitStore.Interface.PayMent"/>
+    <fullyQualifiedTypeName name="BitStore.Interface.CashPayMentImpl"/>
+    <fullyQualifiedTypeName name="BitStore.Interface.PointPayMentImpl"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+</qualifiedTypeNameHistroy>

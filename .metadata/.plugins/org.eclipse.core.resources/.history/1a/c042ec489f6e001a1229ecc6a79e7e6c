@@ -1,0 +1,28 @@
+package BitStore.util;
+
+import java.util.Map;
+
+public class Product {
+	
+	public void insertProduct(Product product) {
+	
+	}
+	
+	public void writeProduct() {
+	
+	}
+	
+	public Map<Integer, Product> selectProduct() {
+		return null;
+	}
+	
+	public boolean updateProduct(Product product) {
+		return false;
+	}
+	
+	public boolean deleteProduct(int productNo) {
+		return false;
+	}
+
+	
+}

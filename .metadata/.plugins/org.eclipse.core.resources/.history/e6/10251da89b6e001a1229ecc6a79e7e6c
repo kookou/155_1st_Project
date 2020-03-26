@@ -1,0 +1,82 @@
+package BitStore.util;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+import BitStore.domain.UserVO;
+
+public class User {
+
+	Scanner in = new Scanner(System.in);
+
+	public void selectUser() {
+		System.out.println("[회원목록 조회]");
+		Iterator<String> mapIter = BitStore.userList.keySet().iterator();
+		while (mapIter.hasNext()) {
+			String key = mapIter.next();
+			UserVO value = BitStore.userList.get(key);
+			System.out.println(value + " / ");
+		}
+	}
+
+	public void selectUserByID() {
+		System.out.print("상세조회할 아이디를 입력하세요. : ");
+		String selectID = in.nextLine();
+		Iterator<String> mapIter = BitStore.userList.keySet().iterator();
+		while (mapIter.hasNext()) {
+			String key = mapIter.next();
+			UserVO value = BitStore.userList.get(key);
+			if (selectID.equals(key)) {
+				System.out.println(value);
+				return;
+			}
+		}
+		System.out.println("찾는 아이디가 없습니다.");
+	}
+
+	public void updateUser() {
+		System.out.println("수정할 아이디를 입력하세요.");
+		String updateID = in.nextLine();
+		Iterator<String> mapIter = BitStore.userList.keySet().iterator();
+		while (mapIter.hasNext()) {
+			String key = mapIter.next();
+			UserVO value = BitStore.userList.get(key);
+			if (updateID.equals(key)) {
+				System.out.print("비밀번호 : ");
+				String pwd = in.nextLine();
+				System.out.print("이름 : ");
+				String userName = in.nextLine();
+				System.out.print("핸드폰 : ");
+				String userPhone = in.nextLine();
+				System.out.println(value);
+				UserVO temp = new UserVO(value.getID(), 
+						pwd, userName, userPhone, value.getMoney(),
+						value.getUserPoint(), value.isDiscount(), 
+						value.getOrderList());
+				BitStore.userList.put(key, temp);
+				return;
+			}
+		}
+		System.out.println("찾는 아이디가 없습니다.");
+	}
+
+	public void deleteUser() {
+		System.out.print("삭제할 아이디를 입력하세요.");
+		String deleteID = in.nextLine();
+		Iterator<String> mapIter = BitStore.userList.keySet().iterator();
+		while (mapIter.hasNext()) {
+			String key = mapIter.next();
+			UserVO value = BitStore.userList.get(key);
+			if (deleteID.equals(key)) {
+				System.out.println(value);
+				BitStore.userList.remove(key);
+				return;
+			}
+		}
+		System.out.println("삭제할 아이디가 없습니다.");
+	}
+
+}

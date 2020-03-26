@@ -1,0 +1,58 @@
+package BitStore.domain;
+
+import java.io.Serializable;
+
+public class DiscardProductVO implements Serializable{
+	private int discardProductNo;
+	private String discardProductName;
+	private String discardExprtDate;
+	private int discardPrice;
+
+	public DiscardProductVO() {
+		
+	}
+	
+	public DiscardProductVO(int discardProductNo, String discardProductName, String discardExprtDate,
+			int discardPrice) {
+		this.discardProductNo = discardProductNo;
+		this.discardProductName = discardProductName;
+		this.discardExprtDate = discardExprtDate;
+		this.discardPrice = discardPrice;
+	}
+
+	public void setDiscardProductNo(int discardProductNo) {
+		this.discardProductNo = discardProductNo;
+	}
+
+	public String getDiscardProductName() {
+		return discardProductName;
+	}
+
+	public void setDiscardProductName(String discardProductName) {
+		this.discardProductName = discardProductName;
+	}
+
+	public String getDiscardExprtDate() {
+		return discardExprtDate;
+	}
+
+	public void setDiscardExprtDate(String discardExprtDate) {
+		this.discardExprtDate = discardExprtDate;
+	}
+
+	public int getDiscardPrice() {
+		return discardPrice;
+	}
+
+	public void setDiscardPrice(int discardPrice) {
+		this.discardPrice = discardPrice;
+	}
+
+	@Override
+	public String toString() {
+		return "폐기상품번호 : " + discardProductNo + ","
+				+ " 폐기상품명 : " + discardProductName
+				+ ", 폐기상품 유통기한 : " + discardExprtDate + ", 폐기상품 단가 : " + discardPrice;
+	}
+
+}

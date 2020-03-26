@@ -1,0 +1,5 @@
+package BitStore.ui.user;
+
+public class BoardUser {
+
+}

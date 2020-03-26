@@ -1,0 +1,21 @@
+package BitStore.util;
+
+import java.util.List;
+
+public class PurChase {
+	public static List<Product> basket;
+	User user;
+	
+	public int selectPoint(User user) {
+		return 0;
+	}
+	
+	public void discountProduct() {
+	
+	}
+	
+	public void insertBasket(List<Product> list) {
+	
+	}
+	
+}

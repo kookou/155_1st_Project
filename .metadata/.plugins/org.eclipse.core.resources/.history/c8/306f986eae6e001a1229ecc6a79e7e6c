@@ -1,0 +1,22 @@
+package BitStore.util;
+
+import java.util.List;
+
+public class PurChase {
+	public static List<Product> basket;
+	User user;
+	
+	public void selectPoint() {
+		System.out.print("현재 남은 포인트 : ");
+		System.out.println(BitStore.currentLoginUser.getUserPoint());
+	}
+	
+	public void discountProduct() {
+	
+	}
+	
+	public void insertBasket() {
+		System.out.println("장바구니에 담을 ");
+	}
+	
+}
