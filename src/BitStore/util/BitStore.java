@@ -21,6 +21,7 @@ import BitStore.domain.DiscardProductVO;
 import BitStore.domain.ProductVO;
 import BitStore.domain.UserVO;
 import BitStore.ui.LoginUI;
+import BitStore.ui.user.UserUI;
 
 public class BitStore {
 	public static Map<String, UserVO> userList = new HashMap();
@@ -52,7 +53,7 @@ public class BitStore {
 				initUserVO.setID("admin");
 				initUserVO.setPwd("admin");
 				initUserVO.setUserName("admin");
-				initUserVO.setUserPhone("000-0000-0000");
+				initUserVO.setUserPhone("010-0000-0000");
 				initUserVO.setMoney(0);
 				initUserVO.setUserPoint(0);
 				initUserVO.setDiscount(false);
@@ -143,7 +144,6 @@ public class BitStore {
 
 	public void join() {
 		user = new UserVO();
-		System.out.println("※※※  Bit 편의점 회원가입을 환영 합니다 ※※※");
 		System.out.println("● Bit 편의점에 사용할 회원 ID를 입력해주세요 : ");
 		System.out.println("(5~15자 사이의 영문 과 숫자를 조합해주세요.)");
 		checkID();
@@ -162,7 +162,7 @@ public class BitStore {
 		checkDC();
 		userList.put(user.getID(), user);
 		writeUserList();
-		System.out.println("※※※  Bit 편의점 회원이 되신 것을 축하드립니다 ※※※");
+		System.out.println("※※※  Bit 편의점 회원이 되신 것을 환영합니다 ※※※");
 		System.out.println("※※※  구매에 사용 가능한 포인트를 지급해 드렸습니다 ※※※");
 
 		// 회원목록
@@ -189,7 +189,8 @@ public class BitStore {
 				System.out.println("● 비밀번호를 입력해주세요 : ");
 				String userPwd = sc.nextLine().trim();
 				if (userList.get(userID).getPwd().equals(userPwd)) {
-					System.out.print("※※※ Bit 편의점에 로그인 되었습니다 ※※※ ");
+					System.out.println("※※※ Bit 편의점에 로그인 되었습니다 ※※※ ");
+					System.out.println("["+userList.get(userID).getUserName()+"] 님 환영합니다.");
 					if (userID.equals("admin")) { // admin이면 adminUI 페이지 ㄱ고싱
 						LoginUI lu = new LoginUI();
 						Iterator<String> mapIter = userList.keySet().iterator();
@@ -333,7 +334,10 @@ public class BitStore {
 	}
 
 	public void logout() {
-
+		UserUI userUI = new UserUI();
+		currentLoginUser = null;
+		System.out.println("※※※ 이용해 주셔서 감사합니다 ※※※");
+		userUI.service();
 	}
 
 	public void findID() {
@@ -360,7 +364,7 @@ public class BitStore {
 		for (String key : keys) {
 			UserVO value = userList.get(key);
 			if (value.getUserName().equals(userName) && value.getUserPhone().equals(userPhone)) {
-				System.out.println("[" + userName + "] 님의 비밀번호는 [" + value.getID() + "] 입니다.");
+				System.out.println("[" + userName + "] 님의 ID 는 [" + value.getID() + "] 입니다.");
 				flag = true;
 				break;
 			}

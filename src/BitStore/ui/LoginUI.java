@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 import BitStore.ui.admin.MemberUI;
 import BitStore.ui.admin.ProductUI;
-import BitStore.ui.user.BitStoreUI;
 import BitStore.ui.user.UserUI;
+import BitStore.util.BitStore;
 import BitStore.util.User;
 
 public class LoginUI {
@@ -54,7 +54,7 @@ public class LoginUI {
 	// 사용자일 경우
 	public void user() {
 		UserUI user = new UserUI();
-		
+		BitStore bs = new BitStore();
 		while (true) {
 			switch (userMenu()) {
 			case 1: //편의점 이용
@@ -68,6 +68,7 @@ public class LoginUI {
 				//User클래스의 updateUser(User) : boolean 호출
 				break;
 			case 4: // 로그아웃
+				bs.logout();
 //				userUI.service();
 				//로그아웃시 BitStore에 있는 currentLoginUser null로 초기화 추가
 			case 0:

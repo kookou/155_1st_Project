@@ -32,43 +32,16 @@ public class User {
 		System.out.println("● 수정할 핸드폰 번호를 입력해 주세요 : ");
 		System.out.println("(010-0000-0000 형식으로 입력해 주세요.)");
 		bs.checkPhone();
-		/*
-		while (true) {
-			String userPwd = sc.nextLine().trim();
-			Pattern pwPattern = Pattern.compile("^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$");
-			Matcher matcher1 = pwPattern.matcher(userPwd);
-			if (!matcher1.matches()) {
-				System.out.println("xxxxxxxx 잘못 입력하셨습니다 xxxxxxxx");
-				System.out.println("xxx 8~20자 사이의 영문 과 숫자,특수문자를 조합해 다시 입력해 주세요 xxx");
-			} else {
-				BitStore.user.setPwd(userPwd);
-				break;
-			}
-		}
-		System.out.println("● 수정할 이름을 입력해 주세요 : ");
-		BitStore.user.setUserName(sc.nextLine().trim());
-		System.out.println("● 수정할 핸드폰 번호를 입력해 주세요 : ");
-		System.out.println("(010-0000-0000 형식으로 입력해 주세요.)");
-		while (true) {
-			String userPhone = sc.nextLine().trim();
-			Pattern phonePattern = Pattern.compile("^01([0|1|0]?)-?([0-9]{3,4})-?([0-9]{4})$");
-			Matcher matcher1 = phonePattern.matcher(userPhone);
-			if (!matcher1.matches()) {
-				System.out.println("xxxxxxxx 잘못 입력하셨습니다 xxxxxxxx");
-				System.out.println("xxx 010-0000-0000 형식으로 입력해 주세요 xxx");
-			} else {
-				BitStore.user.setUserPhone(userPhone);
-				break;
-			}
-		}
-		BitStore.user.setID(BitStore.currentLoginUser.getID());
+
+//		BitStore.user.setID(BitStore.currentLoginUser.getID());
 //		BitStore.user.setUserPoint(BitStore.currentLoginUser.getUserPoint());
 //		BitStore.user.setMoney(BitStore.currentLoginUser.getMoney());
+		
+
 		BitStore.userList.put(BitStore.user.getID(),BitStore.user);
-		 */
 		BitStore.writeUserList();
-//		System.out.println("currentLoginUser"+BitStore.currentLoginUser);
-//		System.out.println("user"+BitStore.user);
+		System.out.println("currentLoginUser"+BitStore.currentLoginUser);
+		System.out.println("user"+BitStore.user);
 	}
 
 	public void deleteUser() {
