@@ -183,8 +183,9 @@ public class BitStore {
 			String userID = sc.nextLine().trim();
 
 			if (!userList.containsKey(userID)) {
-				System.out.println("xxxxx 해당하는 ID가 없습니다 xxxxx");
-				login();
+				System.out.println("["+userID+"] 에 해당하는 ID가 없습니다");
+				System.out.println("xxx 회원가입을 하시거나 ID 찾기를 이용해 주세요 xxx");
+				break;
 			} else if (userList.containsKey(userID)) {
 				System.out.println("● 비밀번호를 입력해주세요 : ");
 				String userPwd = sc.nextLine().trim();
@@ -220,7 +221,9 @@ public class BitStore {
 					}
 					break;
 				} else {
-					System.out.println("Password를 확인해 주세요.");
+					System.out.println("ID와 Password가 일치하지 않습니다");
+					System.out.println("xxxxx Password를 확인해 주세요 xxxxx");
+					break;
 				}
 			}
 		}
@@ -242,7 +245,6 @@ public class BitStore {
 				}
 			}
 			if (!matcher1.matches()) {
-				System.out.println("입력 값 : " + userID);
 				System.out.println("xxxxxxxx 잘못 입력하셨습니다 xxxxxxxx");
 				System.out.println("xxx 5~15자 영문과 숫자를 조합하여 다시 입력해 주세요 xxx");
 				checkID();
@@ -276,7 +278,7 @@ public class BitStore {
 	public void checkPhone() {
 		userPhone = sc.nextLine().trim();
 		while (true) {
-			Pattern phonePattern = Pattern.compile("^01([0|1|0]?)-?([0-9]{3,4})-?([0-9]{4})$");
+			Pattern phonePattern = Pattern.compile("^01([0|1|0]?)-?([0-9]{4})-?([0-9]{4})$");
 			Matcher matcher1 = phonePattern.matcher(userPhone);
 			if (!matcher1.matches()) {
 				System.out.println("xxxxxxxx 잘못 입력하셨습니다 xxxxxxxx");
@@ -363,7 +365,7 @@ public class BitStore {
 		String userPhone = sc.nextLine().trim();
 		for (String key : keys) {
 			UserVO value = userList.get(key);
-			if (value.getUserName().equals(userName) && value.getUserPhone().equals(userPhone)) {
+			if (value.getUserName().equals(userName) && value.getUserPhone().contains(userPhone)) {
 				System.out.println("[" + userName + "] 님의 ID 는 [" + value.getID() + "] 입니다.");
 				flag = true;
 				break;
@@ -410,7 +412,7 @@ public class BitStore {
 		String userName = sc.nextLine().trim();
 		for (String key : keys) {
 			UserVO value = userList.get(key);
-			if (value.getID().equals(userID) && value.getUserName().equals(userName)) {
+			if (value.getID().equals(userID) && value.getUserName().contains(userName)) {
 				System.out.println("[" + userID + "] 님의 비밀번호는 [" + value.getPwd() + "] 입니다.");
 				flag = true;
 				break;
