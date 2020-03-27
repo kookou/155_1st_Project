@@ -213,7 +213,6 @@ public class BitStore {
 							UserVO value = userList.get(key);
 							if (userID.equals(value.getID())) {
 								currentLoginUser = value;
-								System.out.println("user" + currentLoginUser.toString());
 								break;
 							}
 						}
@@ -221,7 +220,7 @@ public class BitStore {
 					}
 					break;
 				} else {
-					System.out.println("ID와 Password가 일치하지 않습니다");
+					System.out.println("xxxxx ID와 Password가 일치하지 않습니다 xxxxxx");
 					System.out.println("xxxxx Password를 확인해 주세요 xxxxx");
 					break;
 				}
