@@ -39,15 +39,15 @@ public class BitStore {
 	public BitStore() {
 		userListFile = new File("userList.txt");
 
-		if (!userListFile.exists()) { // userList.txt°¡ ¾øÀ»½Ã »ı¼º
+		if (!userListFile.exists()) { // userList.txtê°€ ì—†ì„ì‹œ ìƒì„±
 			FileOutputStream fos = null;
 			BufferedOutputStream bos = null;
 			ObjectOutputStream oos = null;
 			try {
 				UserVO initUserVO = new UserVO();
 				userListFile.createNewFile();
-				fos = new FileOutputStream(userListFile); // admin °èÁ¤À» default·Î
-															// Ãß°¡
+				fos = new FileOutputStream(userListFile); // admin ê³„ì •ì„ defaultë¡œ
+															// ì¶”ê°€
 				bos = new BufferedOutputStream(fos);
 				oos = new ObjectOutputStream(fos);
 				initUserVO.setID("admin");
@@ -64,16 +64,16 @@ public class BitStore {
 				e.printStackTrace();
 			}
 		}
-		productListFile = new File("productList.txt"); // »óÇ° ÆÄÀÏ
-		if (!productListFile.exists()) { // productList.txt°¡ ¾øÀ»½Ã »ı¼º
+		productListFile = new File("productList.txt"); // ìƒí’ˆ íŒŒì¼
+		if (!productListFile.exists()) { // productList.txtê°€ ì—†ì„ì‹œ ìƒì„±
 			FileOutputStream fos = null;
 			BufferedOutputStream bos = null;
 			ObjectOutputStream oos = null;
 			try {
 				ProductVO initProductVO = new ProductVO();
 				productListFile.createNewFile();
-				fos = new FileOutputStream(productListFile); // snack »óÇ°À»
-																// default·Î Ãß°¡
+				fos = new FileOutputStream(productListFile); // snack ìƒí’ˆì„
+																// defaultë¡œ ì¶”ê°€
 				bos = new BufferedOutputStream(fos);
 				oos = new ObjectOutputStream(fos);
 				initProductVO.setProductNo(880100000);
@@ -87,9 +87,9 @@ public class BitStore {
 				e.printStackTrace();
 			}
 		}
-		discardProductListFile = new File("discardProductList.txt"); // Æó±â»óÇ° ÆÄÀÏ
-		if (!discardProductListFile.exists()) { // discardProductList.txt°¡ ¾øÀ»½Ã
-												// »ı¼º
+		discardProductListFile = new File("discardProductList.txt"); // íê¸°ìƒí’ˆ íŒŒì¼
+		if (!discardProductListFile.exists()) { // discardProductList.txtê°€ ì—†ì„ì‹œ
+												// ìƒì„±
 			FileOutputStream fos = null;
 			BufferedOutputStream bos = null;
 			ObjectOutputStream oos = null;
@@ -97,9 +97,9 @@ public class BitStore {
 				DiscardProductVO initDiscardProductVO = new DiscardProductVO();
 				discardProductListFile.createNewFile();
 				fos = new FileOutputStream(discardProductListFile); // beverage
-																	// »óÇ°À»
-																	// default·Î
-																	// Ãß°¡
+																	// ìƒí’ˆì„
+																	// defaultë¡œ
+																	// ì¶”ê°€
 				bos = new BufferedOutputStream(fos);
 				oos = new ObjectOutputStream(fos);
 				initDiscardProductVO.setDiscardProductNo(880200000);
@@ -112,21 +112,21 @@ public class BitStore {
 				e.printStackTrace();
 			}
 		}
-		boardListFile = new File("boardList.txt"); // °Ô½ÃÆÇ ¸ñ·Ï ÆÄÀÏ
-		if (!boardListFile.exists()) { // boardList.txt°¡ ¾øÀ»½Ã »ı¼º
+		boardListFile = new File("boardList.txt"); // ê²Œì‹œíŒ ëª©ë¡ íŒŒì¼
+		if (!boardListFile.exists()) { // boardList.txtê°€ ì—†ì„ì‹œ ìƒì„±
 			FileOutputStream fos = null;
 			BufferedOutputStream bos = null;
 			ObjectOutputStream oos = null;
 			try {
 				BoardVO initBoardVO = new BoardVO();
 				boardListFile.createNewFile();
-				fos = new FileOutputStream(boardListFile); // Ã¹¹øÂ° °Ô½Ã±ÛÀ» default·Î
-															// Ãß°¡
+				fos = new FileOutputStream(boardListFile); // ì²«ë²ˆì§¸ ê²Œì‹œê¸€ì„ defaultë¡œ
+															// ì¶”ê°€
 				bos = new BufferedOutputStream(fos);
 				oos = new ObjectOutputStream(fos);
 				initBoardVO.setBoardNo(1);
-				initBoardVO.setBoardTitle("Á¦¸ñ Å×½ºÆ®");
-				initBoardVO.setBoardContent("³»¿ë Å×½ºÆ®");
+				initBoardVO.setBoardTitle("ì œëª© í…ŒìŠ¤íŠ¸");
+				initBoardVO.setBoardContent("ë‚´ìš© í…ŒìŠ¤íŠ¸");
 				initBoardVO.setBoardWriter("admin");
 				initBoardVO.setBoardDate("2020-03-26");
 				boardList.put(1, initBoardVO);
@@ -135,38 +135,38 @@ public class BitStore {
 				e.printStackTrace();
 			}
 		}
-		readUserList(); // È¸¿ø¸ñ·Ï ÆÄÀÏ ºÒ·¯¿À±â
-		readProductList(); // »óÇ°¸ñ·Ï ÆÄÀÏ ºÒ·¯¿À±â
-		readDiscardProductList(); // Æó±â»óÇ°¸ñ·Ï ÆÄÀÏ ºÒ·¯¿À±â
-		readBoardList(); // °Ô½ÃÆÇ¸ñ·Ï ÆÄÀÏ ºÒ·¯¿À±â
+		readUserList(); // íšŒì›ëª©ë¡ íŒŒì¼ ë¶ˆëŸ¬ì˜¤ê¸°
+		readProductList(); // ìƒí’ˆëª©ë¡ íŒŒì¼ ë¶ˆëŸ¬ì˜¤ê¸°
+		readDiscardProductList(); // íê¸°ìƒí’ˆëª©ë¡ íŒŒì¼ ë¶ˆëŸ¬ì˜¤ê¸°
+		readBoardList(); // ê²Œì‹œíŒëª©ë¡ íŒŒì¼ ë¶ˆëŸ¬ì˜¤ê¸°
 		sc = new Scanner(System.in);
 	}
 
 	public void join() {
 		user = new UserVO();
-		System.out.println("¡Ü Bit ÆíÀÇÁ¡¿¡ »ç¿ëÇÒ È¸¿ø ID¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
-		System.out.println("(5~15ÀÚ »çÀÌÀÇ ¿µ¹® °ú ¼ıÀÚ¸¦ Á¶ÇÕÇØÁÖ¼¼¿ä.)");
+		System.out.println("â— Bit í¸ì˜ì ì— ì‚¬ìš©í•  íšŒì› IDë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
+		System.out.println("(5~15ì ì‚¬ì´ì˜ ì˜ë¬¸ ê³¼ ìˆ«ìë¥¼ ì¡°í•©í•´ì£¼ì„¸ìš”.)");
 		checkID();
-		System.out.println("¡Ü Bit ÆíÀÇÁ¡¿¡ »ç¿ëÇÒ È¸¿ø ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
-		System.out.println("(8~20ÀÚ »çÀÌÀÇ ¿µ¹® °ú ¼ıÀÚ,Æ¯¼ö¹®ÀÚ¸¦ Á¶ÇÕÇØÁÖ¼¼¿ä.)");
+		System.out.println("â— Bit í¸ì˜ì ì— ì‚¬ìš©í•  íšŒì› ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
+		System.out.println("(8~20ì ì‚¬ì´ì˜ ì˜ë¬¸ ê³¼ ìˆ«ì,íŠ¹ìˆ˜ë¬¸ìë¥¼ ì¡°í•©í•´ì£¼ì„¸ìš”.)");
 		checkPwd();
-		System.out.println("¡Ü Bit ÆíÀÇÁ¡¿¡ »ç¿ëÇÒ È¸¿ø ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+		System.out.println("â— Bit í¸ì˜ì ì— ì‚¬ìš©í•  íšŒì› ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
 		user.setUserName(sc.nextLine().trim());
-		System.out.println("¡Ü Bit ÆíÀÇÁ¡¿¡ »ç¿ëÇÒ È¸¿ø ÇÚµåÆù¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
-		System.out.println("(010-0000-0000 Çü½ÄÀ¸·Î ÀÔ·ÂÇØ ÁÖ¼¼¿ä.)");
+		System.out.println("â— Bit í¸ì˜ì ì— ì‚¬ìš©í•  íšŒì› í•¸ë“œí°ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
+		System.out.println("(010-0000-0000 í˜•ì‹ìœ¼ë¡œ ì…ë ¥í•´ ì£¼ì„¸ìš”.)");
 		checkPhone();
-		System.out.println("¡Ü ¹°°Ç±¸¸Å¿¡ »ç¿ëÇÒ ±İ¾×À» ÃæÀüÇØÁÖ¼¼¿ä : ");
+		System.out.println("â— ë¬¼ê±´êµ¬ë§¤ì— ì‚¬ìš©í•  ê¸ˆì•¡ì„ ì¶©ì „í•´ì£¼ì„¸ìš” : ");
 		user.setMoney(Integer.parseInt(sc.nextLine().trim()));
 		user.setUserPoint(1000);
-		System.out.println("¡Ü ÇÒÀÎÄ«µå¸¦ ¼ÒÁöÇÏ¼Ì´Ù¸é 1¹øÀ», ¾øÀ¸½Ã´Ù¸é 0¹øÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä : ");
+		System.out.println("â— í• ì¸ì¹´ë“œë¥¼ ì†Œì§€í•˜ì…¨ë‹¤ë©´ 1ë²ˆì„, ì—†ìœ¼ì‹œë‹¤ë©´ 0ë²ˆì„ ì…ë ¥í•´ ì£¼ì„¸ìš” : ");
 		checkDC();
 		userList.put(user.getID(), user);
 		writeUserList();
-		System.out.println("¡Ø¡Ø¡Ø  Bit ÆíÀÇÁ¡ È¸¿øÀÌ µÇ½Å °ÍÀ» È¯¿µÇÕ´Ï´Ù ¡Ø¡Ø¡Ø");
-		System.out.println("¡Ø¡Ø¡Ø  ±¸¸Å¿¡ »ç¿ë °¡´ÉÇÑ Æ÷ÀÎÆ®¸¦ Áö±ŞÇØ µå·È½À´Ï´Ù ¡Ø¡Ø¡Ø");
+		System.out.println("â€»â€»â€»  Bit í¸ì˜ì  íšŒì›ì´ ë˜ì‹  ê²ƒì„ í™˜ì˜í•©ë‹ˆë‹¤ â€»â€»â€»");
+		System.out.println("â€»â€»â€»  êµ¬ë§¤ì— ì‚¬ìš© ê°€ëŠ¥í•œ í¬ì¸íŠ¸ë¥¼ ì§€ê¸‰í•´ ë“œë ¸ìŠµë‹ˆë‹¤ â€»â€»â€»");
 
-		// È¸¿ø¸ñ·Ï
-		System.out.println("[È¸¿ø¸ñ·Ï Á¶È¸]");
+		// íšŒì›ëª©ë¡
+		System.out.println("[íšŒì›ëª©ë¡ ì¡°íšŒ]");
 		Iterator<String> mapIter = BitStore.userList.keySet().iterator();
 		while (mapIter.hasNext()) {
 			String key = mapIter.next();
@@ -178,21 +178,21 @@ public class BitStore {
 
 	public void login() {
 		while (true) {
-			System.out.println("¡Ø¡Ø¡Ø Bit ÆíÀÇÁ¡ ·Î±×ÀÎ ¡Ø¡Ø¡Ø ");
-			System.out.println("¡Ü ¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+			System.out.println("â€»â€»â€» Bit í¸ì˜ì  ë¡œê·¸ì¸ â€»â€»â€» ");
+			System.out.println("â— ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
 			String userID = sc.nextLine().trim();
 
 			if (!userList.containsKey(userID)) {
-				System.out.println("["+userID+"] ¿¡ ÇØ´çÇÏ´Â ID°¡ ¾ø½À´Ï´Ù");
-				System.out.println("xxx È¸¿ø°¡ÀÔÀ» ÇÏ½Ã°Å³ª ID Ã£±â¸¦ ÀÌ¿ëÇØ ÁÖ¼¼¿ä xxx");
+				System.out.println("["+userID+"] ì— í•´ë‹¹í•˜ëŠ” IDê°€ ì—†ìŠµë‹ˆë‹¤");
+				System.out.println("xxx íšŒì›ê°€ì…ì„ í•˜ì‹œê±°ë‚˜ ID ì°¾ê¸°ë¥¼ ì´ìš©í•´ ì£¼ì„¸ìš” xxx");
 				break;
 			} else if (userList.containsKey(userID)) {
-				System.out.println("¡Ü ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+				System.out.println("â— ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
 				String userPwd = sc.nextLine().trim();
 				if (userList.get(userID).getPwd().equals(userPwd)) {
-					System.out.println("¡Ø¡Ø¡Ø Bit ÆíÀÇÁ¡¿¡ ·Î±×ÀÎ µÇ¾ú½À´Ï´Ù ¡Ø¡Ø¡Ø ");
-					System.out.println("["+userList.get(userID).getUserName()+"] ´Ô È¯¿µÇÕ´Ï´Ù.");
-					if (userID.equals("admin")) { // adminÀÌ¸é adminUI ÆäÀÌÁö ¤¡°í½Ì
+					System.out.println("â€»â€»â€» Bit í¸ì˜ì ì— ë¡œê·¸ì¸ ë˜ì—ˆìŠµë‹ˆë‹¤ â€»â€»â€» ");
+					System.out.println("["+userList.get(userID).getUserName()+"] ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.");
+					if (userID.equals("admin")) { // adminì´ë©´ adminUI í˜ì´ì§€ ã„±ê³ ì‹±
 						LoginUI lu = new LoginUI();
 						Iterator<String> mapIter = userList.keySet().iterator();
 						while (mapIter.hasNext()) {
@@ -220,8 +220,7 @@ public class BitStore {
 					}
 					break;
 				} else {
-					System.out.println("xxxxx ID¿Í Password°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù xxxxxx");
-					System.out.println("xxxxx Password¸¦ È®ÀÎÇØ ÁÖ¼¼¿ä xxxxx");
+					System.out.println("xxxxx Passwordê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ë‹¤ì‹œí•œë²ˆ í™•ì¸í•´ì£¼ì„¸ìš” xxxxx");
 					break;
 				}
 			}
@@ -235,17 +234,17 @@ public class BitStore {
 		userID = sc.nextLine().trim();
 		Set<String> keys = userList.keySet();
 		while (true) {
-			Pattern idPattern = Pattern.compile("^(?=.*[a-zA-Z])(?=.*[^!@#$%^*+=-])(?=.*[^°¡-ÆR])(?=.*[0-9]).{5,15}$");
+			Pattern idPattern = Pattern.compile("^(?=.*[a-zA-Z])(?=.*[^!@#$%^*+=-])(?=.*[^ê°€-ï¿½R])(?=.*[0-9]).{5,15}$");
 			Matcher matcher1 = idPattern.matcher(userID);
 			for (String key : keys) {
 				if (key.equals(userID)) {
-					System.out.println("xxx ÀÌ¹Ì »ç¿ëÁßÀÎ ¾ÆÀÌµğÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØ ÁÖ¼¼¿ä xxx");
+					System.out.println("xxx ì´ë¯¸ ì‚¬ìš©ì¤‘ì¸ ì•„ì´ë””ì…ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ ì£¼ì„¸ìš” xxx");
 					checkID();
 				}
 			}
 			if (!matcher1.matches()) {
-				System.out.println("xxxxxxxx Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù xxxxxxxx");
-				System.out.println("xxx 5~15ÀÚ ¿µ¹®°ú ¼ıÀÚ¸¦ Á¶ÇÕÇÏ¿© ´Ù½Ã ÀÔ·ÂÇØ ÁÖ¼¼¿ä xxx");
+				System.out.println("xxxxxxxx ì˜ëª» ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤ xxxxxxxx");
+				System.out.println("xxx 5~15ì ì˜ë¬¸ê³¼ ìˆ«ìë¥¼ ì¡°í•©í•˜ì—¬ ë‹¤ì‹œ ì…ë ¥í•´ ì£¼ì„¸ìš” xxx");
 				checkID();
 			} else {
 				user.setID(userID);
@@ -262,8 +261,8 @@ public class BitStore {
 			Pattern pwPattern = Pattern.compile("^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$");
 			Matcher matcher1 = pwPattern.matcher(userPwd);
 			if (!matcher1.matches()) {
-				System.out.println("xxxxxxxx Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù xxxxxxxx");
-				System.out.println("xxx 8~20ÀÚ »çÀÌÀÇ ¿µ¹® °ú ¼ıÀÚ,Æ¯¼ö¹®ÀÚ¸¦ Á¶ÇÕÇØ ´Ù½Ã ÀÔ·ÂÇØ ÁÖ¼¼¿ä xxx");
+				System.out.println("xxxxxxxx ì˜ëª» ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤ xxxxxxxx");
+				System.out.println("xxx 8~20ì ì‚¬ì´ì˜ ì˜ë¬¸ ê³¼ ìˆ«ì,íŠ¹ìˆ˜ë¬¸ìë¥¼ ì¡°í•©í•´ ë‹¤ì‹œ ì…ë ¥í•´ ì£¼ì„¸ìš” xxx");
 				checkPwd();
 			} else {
 				user.setPwd(userPwd);
@@ -280,8 +279,8 @@ public class BitStore {
 			Pattern phonePattern = Pattern.compile("^01([0|1|0]?)-?([0-9]{4})-?([0-9]{4})$");
 			Matcher matcher1 = phonePattern.matcher(userPhone);
 			if (!matcher1.matches()) {
-				System.out.println("xxxxxxxx Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù xxxxxxxx");
-				System.out.println("xxx 010-0000-0000 Çü½ÄÀ¸·Î ÀÔ·ÂÇØ ÁÖ¼¼¿ä xxx");
+				System.out.println("xxxxxxxx ì˜ëª» ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤ xxxxxxxx");
+				System.out.println("xxx 010-0000-0000 í˜•ì‹ìœ¼ë¡œ ì…ë ¥í•´ ì£¼ì„¸ìš” xxx");
 				checkPhone();
 			} else {
 				user.setUserPhone(userPhone);
@@ -303,7 +302,7 @@ public class BitStore {
 				user.setDiscount(false);
 				break;
 			} else {
-				System.out.println("xxxxxxxx Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù xxxxxxxx");
+				System.out.println("xxxxxxxx ì˜ëª» ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤ xxxxxxxx");
 				checkDC();
 			}
 		}
@@ -321,7 +320,7 @@ public class BitStore {
 			oos = new ObjectOutputStream(fos);
 			oos.writeObject(userList);
 		} catch (Exception e) {
-			System.out.println("xxxxx È¸¿ø¸ñ·Ï ÀúÀå¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù xxxxx");
+			System.out.println("xxxxx íšŒì›ëª©ë¡ ì €ì¥ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤ xxxxx");
 			e.printStackTrace();
 		} finally {
 			try {
@@ -337,7 +336,7 @@ public class BitStore {
 	public void logout() {
 		UserUI userUI = new UserUI();
 		currentLoginUser = null;
-		System.out.println("¡Ø¡Ø¡Ø ÀÌ¿ëÇØ ÁÖ¼Å¼­ °¨»çÇÕ´Ï´Ù ¡Ø¡Ø¡Ø");
+		System.out.println("â€»â€»â€» ì´ìš©í•´ ì£¼ì…”ì„œ ê°ì‚¬í•©ë‹ˆë‹¤ â€»â€»â€»");
 		userUI.service();
 	}
 
@@ -345,7 +344,7 @@ public class BitStore {
 		Set<String> keys = userList.keySet();
 		boolean flag = false;
 
-		System.out.println("¡Ü Bit ÆíÀÇÁ¡¿¡ °¡ÀÔÇÑ È¸¿ø ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+		System.out.println("â— Bit í¸ì˜ì ì— ê°€ì…í•œ íšŒì› ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
 		String userName = sc.nextLine().trim();
 		for (String key : keys) {
 			UserVO value = userList.get(key);
@@ -355,44 +354,44 @@ public class BitStore {
 			}
 		}
 		if (flag == false) {
-			System.out.println("[" + userName + "] ÀÌ¸§ÀÇ È¸¿øÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. ");
-			System.out.println("xxxxxx È¸¿ø°¡ÀÔÈÄ ÀÌ¿ëÇØ ÁÖ¼¼¿ä xxxxxx");
+			System.out.println("[" + userName + "] ì´ë¦„ì˜ íšŒì›ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ");
+			System.out.println("xxxxxx íšŒì›ê°€ì…í›„ ì´ìš©í•´ ì£¼ì„¸ìš” xxxxxx");
 			return;
 		}
 		flag = false;
-		System.out.println("¡Ü Bit ÆíÀÇÁ¡¿¡ °¡ÀÔÇÑ È¸¿ø ÇÚµåÆù ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+		System.out.println("â— Bit í¸ì˜ì ì— ê°€ì…í•œ íšŒì› í•¸ë“œí°ë²ˆí˜¸ ë’· 4ìë¦¬ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
 		String userPhone = sc.nextLine().trim();
 		for (String key : keys) {
 			UserVO value = userList.get(key);
 			if (value.getUserName().equals(userName) && value.getUserPhone().contains(userPhone)) {
-				System.out.println("[" + userName + "] ´ÔÀÇ ID ´Â [" + value.getID() + "] ÀÔ´Ï´Ù.");
+				System.out.println("[" + userName + "] ë‹˜ì˜ ID ëŠ” [" + value.getID() + "] ì…ë‹ˆë‹¤.");
 				flag = true;
 				break;
 			}
 		}
 		if (flag == false) {
-			System.out.println("xxx ÀÌ¸§°ú ÇÚµåÆù¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù. ´Ù½Ã ½ÃµµÇØ ÁÖ¼¼¿ä xxx");
+			System.out.println("xxx ì´ë¦„ê³¼ í•¸ë“œí°ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì‹œë„í•´ ì£¼ì„¸ìš” xxx");
 		}
 	}
 
 	/*
 	 * public void findID() { Iterator<String> mapIter =
-	 * userList.keySet().iterator(); System.out.println("Ã£°í ½ÍÀº IDÀÇ ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä");
+	 * userList.keySet().iterator(); System.out.println("ì°¾ê³  ì‹¶ì€ IDì˜ ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”");
 	 * String userName = sc.nextLine().trim(); boolean flag = false;
-	 * System.out.println("Ã£°í ½ÍÀº IDÀÇ ÇÚµåÆù¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä"); String userPhone =
+	 * System.out.println("ì°¾ê³  ì‹¶ì€ IDì˜ í•¸ë“œí°ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”"); String userPhone =
 	 * sc.nextLine().trim(); while (mapIter.hasNext()) { String key =
 	 * mapIter.next(); UserVO value = userList.get(key); if
 	 * (value.getUserName().equals(userName) &&
 	 * value.getUserPhone().equals(userPhone)) {
-	 * System.out.println("["+userName+"] ´ÔÀÇ ID´Â ["+value.getID()+"] ÀÔ´Ï´Ù.");
+	 * System.out.println("["+userName+"] ë‹˜ì˜ IDëŠ” ["+value.getID()+"] ì…ë‹ˆë‹¤.");
 	 * flag = true; break; } } if (flag == false) { System.out.println(
-	 * "Ã£´Â ¾ÆÀÌµğ°¡ ¾ø½À´Ï´Ù."); } }
+	 * "ì°¾ëŠ” ì•„ì´ë””ê°€ ì—†ìŠµë‹ˆë‹¤."); } }
 	 */
 	public void findPwd() {
 		Set<String> keys = userList.keySet();
 		boolean flag = false;
 
-		System.out.println("¡Ü Bit ÆíÀÇÁ¡¿¡ °¡ÀÔÇÑ È¸¿ø ID ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+		System.out.println("â— Bit í¸ì˜ì ì— ê°€ì…í•œ íšŒì› ID ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
 		String userID = sc.nextLine().trim();
 		for (String key : keys) {
 			UserVO value = userList.get(key);
@@ -402,36 +401,36 @@ public class BitStore {
 			}
 		}
 		if (flag == false) {
-			System.out.println("[" + userID + "] ID°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. ");
-			System.out.println("xxx È¸¿ø°¡ÀÔÀ» ÇÏ½Ã°Å³ª ID Ã£±â¸¦ ÀÌ¿ëÇØ ÁÖ¼¼¿ä xxx");
+			System.out.println("[" + userID + "] IDê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ");
+			System.out.println("xxx íšŒì›ê°€ì…ì„ í•˜ì‹œê±°ë‚˜ ID ì°¾ê¸°ë¥¼ ì´ìš©í•´ ì£¼ì„¸ìš” xxx");
 			return;
 		}
 		flag = false;
-		System.out.println("¡Ü Bit ÆíÀÇÁ¡¿¡ °¡ÀÔÇÑ È¸¿ø ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+		System.out.println("â— Bit í¸ì˜ì ì— ê°€ì…í•œ íšŒì› ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
 		String userName = sc.nextLine().trim();
 		for (String key : keys) {
 			UserVO value = userList.get(key);
 			if (value.getID().equals(userID) && value.getUserName().contains(userName)) {
-				System.out.println("[" + userID + "] ´ÔÀÇ ºñ¹Ğ¹øÈ£´Â [" + value.getPwd() + "] ÀÔ´Ï´Ù.");
+				System.out.println("[" + userID + "] ë‹˜ì˜ ë¹„ë°€ë²ˆí˜¸ëŠ” [" + value.getPwd() + "] ì…ë‹ˆë‹¤.");
 				flag = true;
 				break;
 			}
 		}
 		if (flag == false) {
-			System.out.println("xxx ID¿Í ÀÌ¸§ÀÌ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù. ´Ù½Ã ½ÃµµÇØ ÁÖ¼¼¿ä xxx");
+			System.out.println("xxx IDì™€ ì´ë¦„ì´ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì‹œë„í•´ ì£¼ì„¸ìš” xxx");
 		}
 	}
 	/*
 	 * public void findPwd() { Iterator<String> mapIter =
-	 * userList.keySet().iterator(); System.out.println("Ã£°í ½ÍÀº ºñ¹Ğ¹øÈ£ÀÇ ID¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä"
+	 * userList.keySet().iterator(); System.out.println("ì°¾ê³  ì‹¶ì€ ë¹„ë°€ë²ˆí˜¸ì˜ IDë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”"
 	 * ); String userID = sc.nextLine().trim(); boolean flag = false;
-	 * System.out.println("Ã£°í ½ÍÀº ºñ¹Ğ¹øÈ£ÀÇ ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä"); String userName =
+	 * System.out.println("ì°¾ê³  ì‹¶ì€ ë¹„ë°€ë²ˆí˜¸ì˜ ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”"); String userName =
 	 * sc.nextLine().trim(); while (mapIter.hasNext()) { String key =
 	 * mapIter.next(); UserVO value = userList.get(key); if
 	 * (value.getID().equals(userID) && value.getUserName().equals(userName)) {
-	 * System.out.println("["+userID+"] ´ÔÀÇ ºñ¹Ğ¹øÈ£´Â ["+value.getPwd()+"] ÀÔ´Ï´Ù.");
+	 * System.out.println("["+userID+"] ë‹˜ì˜ ë¹„ë°€ë²ˆí˜¸ëŠ” ["+value.getPwd()+"] ì…ë‹ˆë‹¤.");
 	 * flag = true; break; } } if (flag == false) { System.out.println(
-	 * "Ã£´Â ¾ÆÀÌµğ°¡ ¾ø½À´Ï´Ù."); } }
+	 * "ì°¾ëŠ” ì•„ì´ë””ê°€ ì—†ìŠµë‹ˆë‹¤."); } }
 	 */
 
 	public void readUserList() {
@@ -445,7 +444,7 @@ public class BitStore {
 			ois = new ObjectInputStream(bis);
 			userList = (HashMap) ois.readObject();
 		} catch (Exception e) {
-			System.out.println("xxxxx È¸¿ø¸ñ·ÏÀ» ºÒ·¯¿À´Âµ¥ ½ÇÆĞÇÏ¿´½À´Ï´Ù xxxxx");
+			System.out.println("xxxxx íšŒì›ëª©ë¡ì„ ë¶ˆëŸ¬ì˜¤ëŠ”ë° ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤ xxxxx");
 			e.printStackTrace();
 		} finally {
 			this.close(fis, bis, ois);
@@ -463,7 +462,7 @@ public class BitStore {
 			ois = new ObjectInputStream(bis);
 			productList = (HashMap) ois.readObject();
 		} catch (Exception e) {
-			System.out.println("xxxxx »óÇ°¸ñ·ÏÀ» ºÒ·¯¿À´Âµ¥ ½ÇÆĞÇÏ¿´½À´Ï´Ù xxxxx");
+			System.out.println("xxxxx ìƒí’ˆëª©ë¡ì„ ë¶ˆëŸ¬ì˜¤ëŠ”ë° ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤ xxxxx");
 			e.printStackTrace();
 		} finally {
 			this.close(fis, bis, ois);
@@ -481,7 +480,7 @@ public class BitStore {
 			ois = new ObjectInputStream(bis);
 			discardProductList = (HashMap) ois.readObject();
 		} catch (Exception e) {
-			System.out.println("xxxxx Æó±â»óÇ°¸ñ·ÏÀ» ºÒ·¯¿À´Âµ¥ ½ÇÆĞÇÏ¿´½À´Ï´Ù xxxxx");
+			System.out.println("xxxxx íê¸°ìƒí’ˆëª©ë¡ì„ ë¶ˆëŸ¬ì˜¤ëŠ”ë° ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤ xxxxx");
 			e.printStackTrace();
 		} finally {
 			this.close(fis, bis, ois);
@@ -499,7 +498,7 @@ public class BitStore {
 			ois = new ObjectInputStream(bis);
 			boardList = (HashMap) ois.readObject();
 		} catch (Exception e) {
-			System.out.println("xxxxx °Ô½ÃÆÇ¸ñ·ÏÀ» ºÒ·¯¿À´Âµ¥ ½ÇÆĞÇÏ¿´½À´Ï´Ù xxxxx");
+			System.out.println("xxxxx ê²Œì‹œíŒëª©ë¡ì„ ë¶ˆëŸ¬ì˜¤ëŠ”ë° ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤ xxxxx");
 			e.printStackTrace();
 		} finally {
 			this.close(fis, bis, ois);
